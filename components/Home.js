@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Montserrat-Bold',
         fontSize: 32,
         color: colors.textDark,
+        marginTop: 5,
 
     },
   });
