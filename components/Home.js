@@ -30,7 +30,7 @@ export default Home = () => {
 
   return (
     <View style={styles.container}>
-        <ScrollView>
+        <ScrollView contentInsetAdjustmentBehavior='automatic' showsVerticalScrollIndicator={false}>
                 <SafeAreaView>
                 <View style={styles.headerWrapper}>
                     <Image source={require('../assets/images/profile.png')} style={styles.profileImage}/>
@@ -103,8 +103,8 @@ export default Home = () => {
         </ScrollView>
 
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -182,6 +182,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#F5CA48',
         marginRight: 20,
         borderRadius: 20,
+        shadowColor: colors.black,
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.05,
+        shadowRadius: 10,
+        elevation: 2,
 
     },
     categoriesItemImage: {
@@ -230,6 +238,14 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         flexDirection: 'row',
         overflow: 'hidden',
+        shadowColor: colors.black,
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.05,
+        shadowRadius: 10,
+        elevation: 2,
 
     },
     popularTopWrapper: {

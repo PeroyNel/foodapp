@@ -16,6 +16,12 @@ const categoriesData = [{
         title: 'Soft Drinks',
         selected: false,
     },
+    {
+        id: '4',
+        image: require('../images/soda-icon.png'),
+        title: 'Pudding',
+        selected: false,
+    },
 ];
 
 export default categoriesData;
