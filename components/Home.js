@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Image, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Image, Text, StyleSheet, SafeAreaView, FlatList } from 'react-native';
 import categoriesData from '../assets/data/categoriesData';
 import popularData from '../assets/data/popularData';
 
@@ -8,6 +8,19 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import colors from '../assets/colors/colors';
 
 export default Home = () => {
+    const renderCategoryItem = ({ item }) => {
+        return (
+            <View style={styles.categoriesItemWrapper}>
+                <Image source={item.image} style={styles.categoriesItemImage}/>
+                <Text style={styles.categoriesItemTitle}>{item.title}</Text>
+                <View style={styles.categoriesSelectWrapper}>
+                    <Feather style={styles.categoriesSelectIcon} name="chevron-right" size={8}/>
+                </View>
+
+            </View>
+            );
+    };
+
   return (
     <View style={styles.container}>
         <SafeAreaView>
@@ -17,9 +30,29 @@ export default Home = () => {
             </View>
         </SafeAreaView>
 
+        {/* Titles */}
+
         <View style={styles.titleWrapper}>
             <Text style={styles.titleSubtitle}>Food</Text>
             <Text style={styles.titleTitle}>Delivery</Text>
+        </View>
+
+        {/* Search */}
+        <View style={styles.searchWrapper}>
+            <Feather name="search" size={16} color={colors.textDark}/>
+            <View style={styles.search}>
+                <Text style={styles.searchText}>Search</Text>
+            </View>
+        </View>
+
+        {/* Categories */}
+
+        <View style={styles.categoriesWrapper}>
+            <Text style={styles.categoriesTitle}>Categories</Text>
+            <View style={styles.categoriesListWrapper}>
+                <FlatList data={categoriesData} renderItem={renderCategoryItem} keyExtractor={(item) => item.id} horizontal={true}/>
+            </View>
+
         </View>
 
     </View>
@@ -61,4 +94,58 @@ const styles = StyleSheet.create({
         marginTop: 5,
 
     },
+    searchWrapper: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingHorizontal: 20,
+        marginTop: 30,
+
+    },
+    search: {
+        flex: 1,
+        marginLeft: 10,
+        borderBottomColor: colors.textLight,
+        borderBottomWidth: 2,
+
+
+    },
+    searchText: {
+        fontFamily: 'Montserrat',
+        fontSize: 14,
+        marginBottom: 5,
+        color: colors.textLight,
+
+    },
+    categoriesWrapper: {
+        marginTop: 30,
+
+    },
+    categoriesTitle: {
+        fontFamily: 'Montserrat',
+        fontSize: 16,
+        paddingHorizontal: 20,
+
+    },
+    categoriesListWrapper: {
+        paddingTop: 15,
+        paddingBottom: 20,
+
+    },
+    categoriesItemWrapper: {
+        backgroundColor: '#F5CA48',
+        marginRight: 20,
+
+    },
+    categoriesItemImage: {
+
+    },
+    categoriesItemTitle: {
+
+    },
+    categoriesSelectWrapper: {
+
+    },
+    categoriesSelectIcon: {
+
+    },   
   });
