@@ -10,12 +10,19 @@ import colors from '../assets/colors/colors';
 export default Home = () => {
     const renderCategoryItem = ({ item }) => {
         return (
-            <View style={styles.categoriesItemWrapper}>
-                <Image source={item.image} style={styles.categoriesItemImage}/>
-                <Text style={styles.categoriesItemTitle}>{item.title}</Text>
-                <View style={styles.categoriesSelectWrapper}>
-                    <Feather style={styles.categoriesSelectIcon} name="chevron-right" size={8}/>
-                </View>
+            <View style={[styles.categoriesItemWrapper, 
+                {
+                    backgroundColor: item.selected ? colors.primary : colors.white,
+                    marginLeft: item.id == 1 ? 20 : 0,
+                    },
+                  ]}>
+                  <Image source={item.image} style={styles.categoriesItemImage}/>
+                  <Text style={styles.categoriesItemTitle}>{item.title}</Text>
+                  <View style={[styles.categoriesSelectWrapper, {
+                     backgroundColor: item.selected ? colors.white : colors.secondary, 
+                  }]}>
+                      <Feather style={styles.categoriesSelectIcon} name="chevron-right" size={8} color={item.selected ? colors.black : colors.white}/>
+                  </View>
 
             </View>
             );
@@ -134,18 +141,38 @@ const styles = StyleSheet.create({
     categoriesItemWrapper: {
         backgroundColor: '#F5CA48',
         marginRight: 20,
+        borderRadius: 20,
 
     },
     categoriesItemImage: {
+        width: 60,
+        height: 60,
+        marginTop: 25,
+        borderRadius: 20,
+        alignSelf: 'center',
+        marginHorizontal: 20,
 
     },
     categoriesItemTitle: {
+        textAlign: 'center',
+        fontFamily: 'Montserrat-Medium',
+        fontSize: 14,
+        marginTop: 10,
 
     },
     categoriesSelectWrapper: {
+        alignSelf: 'center',
+        justifyContent: 'center',
+        marginTop: 20,
+        width: 26,
+        height: 26,
+        height: 26,
+        borderRadius: 26,
+        marginBottom: 20,
 
     },
     categoriesSelectIcon: {
+        alignSelf: 'center',
 
     },   
   });
