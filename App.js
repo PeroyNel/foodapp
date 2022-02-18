@@ -7,6 +7,7 @@ import categoriesData from './assets/data/categoriesData';
 import popularData from './assets/data/popularData';
 
 import Home from './components/Home';
+import Details from './components/Details';
 
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -19,6 +20,11 @@ export default function App() {
             <Stack.Screen
             name="Home"
             component={Home}
+            options={{ headerShown: false }}
+            />
+            <Stack.Screen
+            name="Details"
+            component={Details}
             options={{ headerShown: false }}
             />
             

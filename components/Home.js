@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Image, Text, StyleSheet, SafeAreaView, FlatList, ScrollView } from 'react-native';
+import { View, Image, Text, StyleSheet, SafeAreaView, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 import categoriesData from '../assets/data/categoriesData';
 import popularData from '../assets/data/popularData';
 
@@ -7,7 +7,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../assets/colors/colors';
 
-export default Home = () => {
+export default Home = ({ navigation }) => {
     const renderCategoryItem = ({ item }) => {
         return (
             <View style={[styles.categoriesItemWrapper, 
@@ -66,7 +66,8 @@ export default Home = () => {
             <View style={styles.popularWrapper}>
                 <Text style={styles.popularTitle}>Popular</Text>
                 {popularData.map(item => (
-                    <View key={item.id} style={[styles.popularCardWrapper, 
+                    <TouchableOpacity key={item.id} onPress={() => navigation.navigate('Details')}>
+                    <View style={[styles.popularCardWrapper, 
                         {
                         marginTop: item.id == 1 ? 10 : 20,
                         },
@@ -97,6 +98,7 @@ export default Home = () => {
                             <Image source={item.image} style={styles.popularCardImage} />
                         </View>
                     </View>
+                    </TouchableOpacity>
                 ))}
 
             </View>
