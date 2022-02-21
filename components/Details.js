@@ -54,7 +54,7 @@ export default Details = ({ route, navigation }) => {
                     </View>
                     <View style={styles.infoItemWrapper}>
                         <Text style={styles.infoItemTitle}>Delivery Time</Text>
-                        <Text style={styles.infoItemText}>{item.deliveryTime}</Text>
+                        <Text style={styles.infoItemText}>{item.deliveryTime} min</Text>
 
                     </View>
                 
@@ -113,5 +113,39 @@ const styles = new StyleSheet.create({
         color: colors.price,
         fontFamily: 'Montserrat-SemiBold',
         fontSize: 32,
-    },   
-})
+    },
+    infoWrapper: {
+        marginTop: 60,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    infoLeftWrapper: {
+        paddingLeft: 20,
+
+    },
+    infoItemWrapper: {
+        marginBottom: 20,
+    },
+    infoItemTitle: {
+        fontFamily: 'Montserrat-Medium',
+        fontSize: 14,
+        color: colors.textLight,
+
+    },
+    infoItemText: {
+        fontFamily: 'Montserrat-SemiBold',
+        fontSize: 18,
+        color: colors.textDark,
+
+    },
+    infoRightWrapper: {
+
+    },
+    itemImage: {
+        resizeMode: 'contain',
+        marginLeft: 40,
+
+    },
+
+}) 
